@@ -1,37 +1,29 @@
 'use strict';
 
-var fs = require('fs');
-
 var test = require('tape');
 var readFile = require('require-main')();
 
 test('fsReadFilePromise()', function(t) {
-  var behaviors = [
+  var specs = [
     'should read a file.',
     'should be rejected with an error.',
     'should accept an option object.'
   ];
 
-  t.plan(behaviors.length);
+  t.plan(specs.length);
 
-  readFile('./package.json')
+  readFile('./.gitignore')
   .then(function(actual) {
-    fs.readFile('./package.json', function(err, expected) {
-      if (err) {
-        t.error(err);
-        return;
-      }
-      t.equal(actual.toString(), expected.toString(), behaviors[0]);
-    });
+    t.equal(actual.toString(), 'node_modules\ncoverage\n', specs[0]);
   });
 
   readFile('./bower.json')
   .catch(function(err) {
-    t.equal(err.code, 'ENOENT', behaviors[1]);
+    t.equal(err.code, 'ENOENT', specs[1]);
   });
 
-  readFile('./package.json', {encoding: 'foo'})
+  readFile('./.gitignore', {encoding: 'foo'})
   .catch(function(err) {
-    t.deepEqual(err, new Error('Unknown encoding: foo'), behaviors[2]);
+    t.deepEqual(err, new Error('Unknown encoding: foo'), specs[2]);
   });
 });
