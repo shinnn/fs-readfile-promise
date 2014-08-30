@@ -9,7 +9,9 @@
   },
   "scripts": {
     "pretest": "eslint *.js & jscs *.js",
-    "test": "tape test.js | tap-spec"
+    "test": "node test.js | tap-spec",
+    "coverage": "istanbul cover test.js",
+    "coveralls": "${npm_package_scripts_coverage} && istanbul-coveralls"
   },
   "licenses": [
     {
@@ -35,9 +37,11 @@
   },
   "devDependencies": {
     "eslint": "^0.7.4",
-    "jscs": "^1.5.9",
+    "istanbul": "^0.3.0",
+    "istanbul-coveralls": "^1.0.0",
+    "jscs": "^1.6.0",
     "require-main": "^0.1.1",
-    "tap-spec": "^0.2.0",
+    "tap-spec": "^0.2.1",
     "tape": "^2.14.0"
   }
 }

@@ -2,6 +2,7 @@
 
 [![NPM version](https://badge.fury.io/js/fs-readfile-promise.svg)](http://badge.fury.io/js/fs-readfile-promise)
 [![Build Status](https://travis-ci.org/shinnn/fs-readfile-promise.svg?branch=master)](https://travis-ci.org/shinnn/fs-readfile-promise)
+[![Coverage Status](https://img.shields.io/coveralls/shinnn/fs-readfile-promise.svg)](https://coveralls.io/r/shinnn/fs-readfile-promise)
 [![Dependency Status](https://david-dm.org/shinnn/fs-readfile-promise.svg)](https://david-dm.org/shinnn/fs-readfile-promise)
 [![devDependency Status](https://david-dm.org/shinnn/fs-readfile-promise/dev-status.svg)](https://david-dm.org/shinnn/fs-readfile-promise#info=devDependencies)
 
