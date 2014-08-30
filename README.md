@@ -1,7 +1,7 @@
 # fs-readfile-promise 
 
-[![NPM version](https://badge.fury.io/js/fs-readfile-promise.svg)](http://badge.fury.io/js/fs-readfile-promise)
 [![Build Status](https://travis-ci.org/shinnn/fs-readfile-promise.svg?branch=master)](https://travis-ci.org/shinnn/fs-readfile-promise)
+[![Build status](https://ci.appveyor.com/api/projects/status/5sacvq0w9x7mwkwd)](https://ci.appveyor.com/project/ShinnosukeWatanabe/fs-readfile-promise)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/fs-readfile-promise.svg)](https://coveralls.io/r/shinnn/fs-readfile-promise)
 [![Dependency Status](https://david-dm.org/shinnn/fs-readfile-promise.svg)](https://david-dm.org/shinnn/fs-readfile-promise)
 [![devDependency Status](https://david-dm.org/shinnn/fs-readfile-promise/dev-status.svg)](https://david-dm.org/shinnn/fs-readfile-promise#info=devDependencies)
@@ -20,9 +20,11 @@ readFile('path/to/file')
 });
 ```
 
-This performs only a single task, based on the principle of [*modular programming*](http://en.wikipedia.org/wiki/Modular_programming). If you want to use a bunch of other [`fs`](http://nodejs.org/api/fs.html) methods in the way of promise, choose other modules such as [q-io](https://github.com/kriskowal/q-io) and [fs-promise](https://github.com/kevinbeaty/fs-promise).
+Unlike other file system modules using promises, this module has only a single functionality [`readFile`][fsreadfile], based on the principle of [*modular programming*](http://en.wikipedia.org/wiki/Modular_programming). If you want to use a bunch of other [`fs`](http://nodejs.org/api/fs.html) methods in the promises' way, choose other modules such as [q-io](https://github.com/kriskowal/q-io) and [fs-promise](https://github.com/kevinbeaty/fs-promise).
 
 ## Installation
+
+[![NPM version](https://badge.fury.io/js/fs-readfile-promise.svg)](http://badge.fury.io/js/fs-readfile-promise)
 
 [Install with npm](https://www.npmjs.org/doc/cli/npm-install.html). (Make sure you have installed [Node](http://nodejs.org/))
 
