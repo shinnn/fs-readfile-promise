@@ -20,7 +20,7 @@ readFile('path/to/file')
 });
 ```
 
-Unlike other file system modules using promises, this module has only a single functionality [`readFile`][fsreadfile], based on the principle of [*modular programming*](http://en.wikipedia.org/wiki/Modular_programming). If you want to use a bunch of other [`fs`](http://nodejs.org/api/fs.html) methods in the promises' way, choose other modules such as [q-io](https://github.com/kriskowal/q-io) and [fs-promise](https://github.com/kevinbeaty/fs-promise).
+Based on the principle of [*modular programming*](http://en.wikipedia.org/wiki/Modular_programming), this module has only one functionality [`readFile`][fsreadfile], unlike other file system modules using promises. If you want to use a bunch of other [`fs`](http://nodejs.org/api/fs.html) methods in the promises' way, choose other modules such as [q-io](https://github.com/kriskowal/q-io) and [fs-promise](https://github.com/kevinbeaty/fs-promise).
 
 ## Installation
 
@@ -66,7 +66,7 @@ readFile('path/to/file').then(onFulfilled, onRejected);
 
 Copyright (c) 2014 [Shinnosuke Watanabe](https://github.com/shinnn)
 
-Licensed under [the MIT LIcense](./LICENSE).
+Licensed under [the MIT License](./LICENSE).
 
 [fsreadfile]: http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback
 [promise]: http://promisesaplus.com/
