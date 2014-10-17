@@ -1,13 +1,14 @@
 'use strict';
 
 var test = require('tape');
-var readFile = require('require-main')();
+var readFile = require('./');
 
 test('fsReadFilePromise()', function(t) {
   var specs = [
     'should read a file.',
-    'should be rejected with an error.',
-    'should accept an option object.'
+    'should be rejected with an error when the file doesn\'t exist.',
+    'should accept an option object for fs.readFile.',
+    'should be rejected with a type error when the path isn\'t a string.'
   ];
 
   t.plan(specs.length);
@@ -24,6 +25,11 @@ test('fsReadFilePromise()', function(t) {
 
   readFile('./.gitignore', {encoding: 'foo'})
   .catch(function(err) {
-    t.deepEqual(err, new Error('Unknown encoding: foo'), specs[2]);
+    t.equal(err.message, 'Unknown encoding: foo', specs[2]);
+  });
+
+  readFile(true)
+  .catch(function(err) {
+    t.equal(err.message, 'path must be a string', specs[3]);
   });
 });
