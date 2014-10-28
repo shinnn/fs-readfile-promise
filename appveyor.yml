@@ -9,8 +9,8 @@ environment:
     - nodejs_version: '0.11'
 
 install:
-  - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version)
-  - npm install
+  - ps: Install-Product node $env:nodejs_version
+  - npm install es6-promise tape
 
 build: off
 
