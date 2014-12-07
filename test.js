@@ -4,32 +4,45 @@ var test = require('tape');
 var readFile = require('./');
 
 test('fsReadFilePromise()', function(t) {
-  var specs = [
-    'should read a file.',
-    'should be rejected with an error when the file doesn\'t exist.',
-    'should accept an option object for fs.readFile.',
-    'should be rejected with a type error when the path isn\'t a string.'
-  ];
+  t.plan(8);
 
-  t.plan(specs.length);
-
-  readFile('./.gitignore')
-  .then(function(actual) {
-    t.equal(actual.toString(), 'node_modules\ncoverage\n', specs[0]);
+  readFile('.gitattributes').then(function(actual) {
+    t.deepEqual(actual, new Buffer('* text=auto\n'), 'should read a file.');
   });
 
-  readFile('./bower.json')
-  .catch(function(err) {
-    t.equal(err.code, 'ENOENT', specs[1]);
+  readFile('.gitattributes', 'utf8').then(function(actual) {
+    t.equal(actual, '* text=auto\n', 'should reflect encoding to the result.');
   });
 
-  readFile('./.gitignore', {encoding: 'foo'})
-  .catch(function(err) {
-    t.equal(err.message, 'Unknown encoding: foo', specs[2]);
+  readFile('bower.json', null).catch(function(err) {
+    t.equal(err.code, 'ENOENT', 'should be rejected when the file doesn\'t exist.');
   });
 
-  readFile(true)
-  .catch(function(err) {
-    t.equal(err.message, 'path must be a string', specs[3]);
+  readFile('node_modules', undefined).catch(function(err) {
+    t.equal(err.code, 'EISDIR', 'should be rejected when it tries to read a directory.');
   });
+
+  t.throws(
+    readFile.bind(null, true),
+    /TypeError.*string/,
+    'should throw a type error when the path isn\'t a string.'
+  );
+
+  t.throws(
+    readFile.bind(null, '.gitattributes', {encoding: 'foo'}),
+    /Unknown encoding: foo/,
+    'should throw an error when the encoding is not supported.'
+  );
+
+  t.throws(
+    readFile.bind(null, '.gitattributes', true),
+    /TypeError.*Bad arguments/,
+    'should throw an error when the second argument is not a string or an object.'
+  );
+
+  t.throws(
+    readFile.bind(null),
+    /TypeError.*string/,
+    'should throw a type error when it takes no arguments.'
+  );
 });
