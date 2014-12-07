@@ -1,6 +1,6 @@
 'use strict';
 
-var fs = require('fs');
+var fs = require('graceful-fs');
 
 var ES6Promise = global.Promise || require('es6-promise').Promise;
 
