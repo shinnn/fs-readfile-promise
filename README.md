@@ -6,7 +6,7 @@
 [![Dependency Status](https://david-dm.org/shinnn/fs-readfile-promise.svg)](https://david-dm.org/shinnn/fs-readfile-promise)
 [![devDependency Status](https://david-dm.org/shinnn/fs-readfile-promise/dev-status.svg)](https://david-dm.org/shinnn/fs-readfile-promise#info=devDependencies)
 
-[Promise][promise] version of [`fs.readFile`][fsreadfile]
+[Promises/A+][promise] version of [`fs.readFile`][fsreadfile]
 
 ```javascript
 var readFile = require('fs-readfile-promise');
@@ -41,7 +41,7 @@ var readFile = require('fs-readfile-promise');
 ### readFile(*filename* [, *options*])
 
 *filename*: `String`  
-*options*: `Object` (same as [fs.readFile][fsreadfile])  
+*options*: `Object` or `String` (same as [fs.readFile][fsreadfile])  
 Return: `Object` ([Promise][promise])
 
 When it finish reading the file, it will be [*fulfilled*](http://promisesaplus.com/#point-26) with an [`Buffer`](http://nodejs.org/api/buffer.html#buffer_buffer) of the file as its first argument.
