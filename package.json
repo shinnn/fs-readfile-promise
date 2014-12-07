@@ -1,6 +1,6 @@
 {
   "name": "fs-readfile-promise",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Promise version of fs.readFile",
   "repository": "shinnn/fs-readfile-promise",
   "author": {
