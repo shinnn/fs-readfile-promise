@@ -3,10 +3,7 @@
   "version": "1.1.0",
   "description": "Promise version of fs.readFile",
   "repository": "shinnn/fs-readfile-promise",
-  "author": {
-    "name": "Shinnosuke Watanabe",
-    "url": "https://github.com/shinnn"
-  },
+  "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
     "pretest": "eslint --config node_modules/@shinnn/eslintrc-node/rc.json index.js test.js",
     "test": "node --harmony_arrow_functions test.js",
@@ -15,8 +12,7 @@
   },
   "license": "MIT",
   "files": [
-    "index.js",
-    "LICENSE"
+    "index.js"
   ],
   "keywords": [
     "fs",
@@ -28,18 +24,13 @@
     "thenable"
   ],
   "dependencies": {
-    "graceful-fs": "^3.0.5"
+    "graceful-fs": "^3.0.7"
   },
   "devDependencies": {
-    "eslint": "^0.10.1",
-    "istanbul": "^0.3.4",
-    "istanbul-coveralls": "^1.0.1",
-    "jscs": "^1.8.1",
-    "tap-spec": "^2.1.1",
-    "tape": "^3.0.3"
-  },
-  "jscsConfig": {
-    "preset": "google",
-    "maximumLineLength": 98
+    "@shinnn/eslintrc-node": "^1.0.2",
+    "eslint": "^0.21.2",
+    "istanbul": "^0.3.14",
+    "istanbul-coveralls": "^1.0.2",
+    "tape": "^4.0.0"
   }
 }
