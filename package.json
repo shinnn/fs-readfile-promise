@@ -13,12 +13,7 @@
     "coverage": "node --harmony_arrow_functions node_modules/.bin/istanbul cover test.js",
     "coveralls": "${npm_package_scripts_coverage} && istanbul-coveralls"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/shinnn/fs-readfile-promise/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "files": [
     "index.js",
     "LICENSE"
@@ -33,7 +28,6 @@
     "thenable"
   ],
   "dependencies": {
-    "es6-promise": "^2.0.0",
     "graceful-fs": "^3.0.5"
   },
   "devDependencies": {
