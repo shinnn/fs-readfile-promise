@@ -8,9 +8,9 @@
     "url": "https://github.com/shinnn"
   },
   "scripts": {
-    "pretest": "jscs *.js && eslint *.js",
-    "test": "node test.js | tap-spec",
-    "coverage": "istanbul cover test.js",
+    "pretest": "eslint --config node_modules/@shinnn/eslintrc-node/rc.json index.js test.js",
+    "test": "node --harmony_arrow_functions test.js",
+    "coverage": "node --harmony_arrow_functions node_modules/.bin/istanbul cover test.js",
     "coveralls": "${npm_package_scripts_coverage} && istanbul-coveralls"
   },
   "licenses": [
