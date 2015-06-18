@@ -1,26 +1,11 @@
-init:
-  - git config --global core.autocrlf input
-
+init: git config --global core.autocrlf input
 shallow_clone: true
-
 version: '{build}'
-
 skip_tags: true
-
-environment:
-  matrix:
-    - nodejs_version: '2'
-
 install:
-  - ps: Install-Product node $env:nodejs_version
+  - ps: Install-Product node 2
   - npm install --production
   - npm install tape
-
 build: off
-
-test_script:
-  - ps: node --harmony_arrow_functions test.js
-  - node --harmony_arrow_functions test.js
-
-cache:
-  - node_modules
+test_script: node --harmony_arrow_functions test.js
+cache: node_modules
