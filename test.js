@@ -36,7 +36,7 @@ test('fsReadFilePromise()', t => {
 
   t.throws(
     () => readFile('.gitattributes', true),
-    /TypeError.*Bad arguments/,
+    /TypeError.*got boolean instead/,
     'should throw a type error when the second argument is not a string or an object.'
   );
 
