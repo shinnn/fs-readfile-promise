@@ -24,13 +24,13 @@
     "thenable"
   ],
   "dependencies": {
-    "graceful-fs": "^3.0.7"
+    "graceful-fs": "^4.1.2"
   },
   "devDependencies": {
     "@shinnn/eslintrc-node": "^1.0.2",
-    "eslint": "^0.21.2",
-    "istanbul": "^0.3.14",
-    "istanbul-coveralls": "^1.0.2",
+    "eslint": "^0.24.0",
+    "istanbul": "^0.3.17",
+    "istanbul-coveralls": "^1.0.3",
     "tape": "^4.0.0"
   }
 }
