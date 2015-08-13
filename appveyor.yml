@@ -3,7 +3,7 @@ shallow_clone: true
 version: '{build}'
 skip_tags: true
 install:
-  - ps: Install-Product node 2
+  - ps: Install-Product node 3
   - npm install --production
   - npm install tape
 build: off
