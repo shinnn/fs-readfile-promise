@@ -4,8 +4,8 @@
 [![Build Status](https://travis-ci.org/shinnn/fs-readfile-promise.svg?branch=master)](https://travis-ci.org/shinnn/fs-readfile-promise)
 [![Build status](https://ci.appveyor.com/api/projects/status/5sacvq0w9x7mwkwd?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/fs-readfile-promise)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/fs-readfile-promise.svg)](https://coveralls.io/r/shinnn/fs-readfile-promise)
-[![Dependency Status](https://img.shields.io/david/shinnn/fs-readfile-promise.svg?label=deps)](https://david-dm.org/shinnn/fs-readfile-promise)
-[![devDependency Status](https://img.shields.io/david/dev/shinnn/fs-readfile-promise.svg?label=devDeps)](https://david-dm.org/shinnn/fs-readfile-promise#info=devDependencies)
+[![Dependency Status](https://david-dm.org/shinnn/fs-readfile-promise.svg)](https://david-dm.org/shinnn/fs-readfile-promise)
+[![devDependency Status](https://david-dm.org/shinnn/fs-readfile-promise/dev-status.svg)](https://david-dm.org/shinnn/fs-readfile-promise#info=devDependencies)
 
 [Promises/A+][promise] version of [`fs.readFile`][fs.readfile]
 
