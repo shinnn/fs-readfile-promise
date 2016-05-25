@@ -1,11 +1,10 @@
-init: git config --global core.autocrlf input
 shallow_clone: true
 version: '{build}'
 skip_tags: true
 install:
-  - ps: Install-Product node 3
-  - npm install --production
-  - npm install tape
+  - ps: Install-Product node 6
+  - npm uninstall --save-dev @shinnn/eslint-config-node eslint istanbul
+  - npm install
 build: off
-test_script: node --harmony_arrow_functions test.js
+test_script: node --strong_mode test.js
 cache: node_modules
