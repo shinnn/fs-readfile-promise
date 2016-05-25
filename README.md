@@ -10,11 +10,11 @@
 [Promises/A+][promise] version of [`fs.readFile`][fs.readfile]
 
 ```javascript
-var readFile = require('fs-readfile-promise');
+const readFile = require('fs-readfile-promise');
 
 readFile('path/to/file')
 .then(buffer => console.log(buffer.toString()))
-.catch(err => console.log(err.message));
+.catch(err => console.error(err.message));
 ```
 
 Based on the principle of [*modular programming*](https://en.wikipedia.org/wiki/Modular_programming), this module has only one functionality [`readFile`][fs.readfile], unlike other promise-based file system modules. If you want to use a bunch of other [`fs`](http://nodejs.org/api/fs.html) methods in the promises' way, choose other modules such as [q-io](https://github.com/kriskowal/q-io) and [fs-promise](https://github.com/kevinbeaty/fs-promise).
@@ -54,7 +54,7 @@ readFile('path/to/file').then(onFulfilled, onRejected);
 
 ## License
 
-Copyright (c) 2014 - 2015 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2014 - 2016 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).
 
