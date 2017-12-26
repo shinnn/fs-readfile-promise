@@ -1,10 +1,9 @@
+image: Visual Studio 2017
+platform: x64
 shallow_clone: true
-version: '{build}'
 skip_tags: true
 install:
-  - ps: Install-Product node 6
-  - npm uninstall --save-dev @shinnn/eslint-config-node eslint istanbul
+  - ps: Install-Product node Stable x64
   - npm install
 build: off
-test_script: node --strong_mode test.js
-cache: node_modules
+test_script: node test.js
