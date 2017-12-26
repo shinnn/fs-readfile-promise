@@ -1,34 +1,36 @@
 {
-  "name": "fs-readfile-promise",
-  "version": "3.0.0",
-  "description": "Promise version of fs.readFile",
-  "repository": "shinnn/fs-readfile-promise",
-  "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
-  "scripts": {
-    "pretest": "eslint --fix --config @shinnn/node index.js test.js",
-    "test": "node --strong_mode test.js",
-    "coverage": "node --strong_mode node_modules/.bin/istanbul cover test.js"
-  },
-  "license": "MIT",
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "fs",
-    "read",
-    "file",
-    "promise",
-    "promises",
-    "then",
-    "thenable"
-  ],
-  "dependencies": {
-    "graceful-fs": "^4.1.2"
-  },
-  "devDependencies": {
-    "@shinnn/eslint-config-node": "^2.0.0",
-    "eslint": "^2.10.0",
-    "istanbul": "^0.4.3",
-    "tape": "^4.5.1"
-  }
+	"name": "fs-readfile-promise",
+	"version": "3.0.0",
+	"description": "Promise version of fs.readFile",
+	"repository": "shinnn/fs-readfile-promise",
+	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"scripts": {
+		"pretest": "eslint --fix --format=codeframe index.js test.js",
+		"test": "nyc node test.js"
+	},
+	"license": "MIT",
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"fs",
+		"read",
+		"file",
+		"promise",
+		"promises",
+		"then",
+		"thenable"
+	],
+	"dependencies": {
+		"graceful-fs": "^4.1.11"
+	},
+	"devDependencies": {
+		"@shinnn/eslint-config-node": "^5.0.0",
+		"eslint": "^4.14.0",
+		"nyc": "^11.4.1",
+		"tape": "^4.8.0"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn/node"
+	}
 }
