@@ -17,19 +17,19 @@ test('fsReadFilePromise()', async t => {
 	try {
 		await readFile('__this_file_does_not_exist__', null);
 	} catch ({code}) {
-		t.equal(code, 'ENOENT', 'should be rejected when the file doesn\'t exist.');
+		t.equal(code, 'ENOENT', 'should fail when the file doesn\'t exist.');
 	}
 
 	try {
 		await readFile(__dirname, undefined);
 	} catch ({code}) {
-		t.equal(code, 'EISDIR', 'should be rejected when it tries to read a directory.');
+		t.equal(code, 'EISDIR', 'should fail when it tries to read a directory.');
 	}
 
 	try {
 		await readFile(true);
 	} catch ({name}) {
-		t.equal(name, 'TypeError', 'should throw a type error when the path isn\'t a string.');
+		t.equal(name, 'TypeError', 'should fail when the path isn\'t a string.');
 	}
 
 	try {
@@ -38,7 +38,7 @@ test('fsReadFilePromise()', async t => {
 		t.equal(
 			code,
 			'ERR_INVALID_OPT_VALUE_ENCODING',
-			'should throw an error when the encoding is not supported.'
+			'should fail when the encoding is not supported.'
 		);
 	}
 
@@ -48,14 +48,28 @@ test('fsReadFilePromise()', async t => {
 		t.equal(
 			code,
 			'ERR_INVALID_ARG_TYPE',
-			'should throw a type error when the second argument is not a string or an object.'
+			'should fail when the second argument is not a string or an object.'
 		);
 	}
 
 	try {
 		await readFile();
-	} catch ({name}) {
-		t.equal(name, 'TypeError', 'should throw a type error when it takes no arguments.');
+	} catch ({message}) {
+		t.equal(
+			message,
+			'Expected 1 or 2 arguments (<string|Buffer|URL|integer>[, <Object|string>]), but got no arguments.',
+			'should fail when it takes no arguments.'
+		);
+	}
+
+	try {
+		await readFile('1', '2', '3');
+	} catch ({message}) {
+		t.equal(
+			message,
+			'Expected 1 or 2 arguments (<string|Buffer|URL|integer>[, <Object|string>]), but got 3 arguments.',
+			'should fail when it takes too many arguments.'
+		);
 	}
 
 	t.end();
