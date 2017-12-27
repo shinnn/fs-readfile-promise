@@ -53,6 +53,26 @@ test('fsReadFilePromise()', async t => {
 	}
 
 	try {
+		await readFile('');
+	} catch ({message}) {
+		t.equal(
+			message,
+			'Expected a valid file path or a file descripter to read, but got \'\' (empty string).',
+			'should fail when the path is an empty string.'
+		);
+	}
+
+	try {
+		await readFile(Buffer.alloc(0));
+	} catch ({message}) {
+		t.equal(
+			message,
+			'Expected a valid file path or a file descripter to read, but got a zero-length Buffer.',
+			'should fail when the path is an empty Buffer.'
+		);
+	}
+
+	try {
 		await readFile();
 	} catch ({message}) {
 		t.equal(
