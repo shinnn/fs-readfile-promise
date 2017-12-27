@@ -47,6 +47,11 @@ Return: `Promise<Buffer|string>`
 
 ```
 
+## Related projects
+
+* [read-utf8-file](https://github.com/shinnn/read-utf8-file) — Promisified `fs.readFile` with automatic [BOM](https://unicode.org/faq/utf_bom.html) stripping, encoding validation and stringification
+* [read-multiple-files](https://github.com/shinnn/read-multiple-files) — Read multiple files [Observable](https://github.com/tc39/proposal-observable) way
+
 ## License
 
 [ISC License](./LICENSE) © 2017 Shinnosuke Watanabe
