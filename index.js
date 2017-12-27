@@ -1,8 +1,10 @@
 'use strict';
 
+const {promisify} = require('util');
 const {readFile} = require('graceful-fs');
 
 const ARG_ERROR = 'Expected 1 or 2 arguments (<string|Buffer|URL|integer>[, <Object|string>])';
+const promisifiedReadFile = promisify(readFile);
 
 module.exports = async function fsReadFilePromise(...args) {
 	const argLen = args.length;
@@ -18,14 +20,5 @@ module.exports = async function fsReadFilePromise(...args) {
 		throw new RangeError(`${ARG_ERROR}, but got ${argLen} arguments.`);
 	}
 
-	return new Promise((resolve, reject) => {
-		readFile(...args, (err, data) => {
-			if (err) {
-				reject(err);
-				return;
-			}
-
-			resolve(data);
-		});
-	});
+	return promisifiedReadFile(...args);
 };
