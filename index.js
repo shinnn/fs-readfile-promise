@@ -30,8 +30,10 @@ module.exports = async function fsReadFilePromise(...args) {
 		throw error;
 	}
 
-	if (Buffer.isBuffer(path) && path.length === 0) {
-		const error = new Error(`${PATH_ERROR}, but got a zero-length Buffer.`);
+	if (path.length === 0) {
+		const error = new Error(`${PATH_ERROR}, but got a zero-length ${
+			Buffer.isBuffer(path) ? 'Buffer' : 'Uint8Array'
+		}.`);
 		error.code = 'ERR_INVALID_ARG_VALUE';
 
 		throw error;

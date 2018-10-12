@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/fs-readfile-promise.svg)](https://www.npmjs.com/package/fs-readfile-promise)
 [![Build Status](https://travis-ci.org/shinnn/fs-readfile-promise.svg?branch=master)](https://travis-ci.org/shinnn/fs-readfile-promise)
 [![Build status](https://ci.appveyor.com/api/projects/status/5sacvq0w9x7mwkwd?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/fs-readfile-promise)
-[![Coverage Status](https://img.shields.io/coveralls/shinnn/fs-readfile-promise.svg)](https://coveralls.io/r/shinnn/fs-readfile-promise)
+[![Coverage Status](https://img.shields.io/coveralls/shinnn/fs-readfile-promise.svg)](https://coveralls.io/github/shinnn/fs-readfile-promise?branch=master)
 
 Promisified version of [`fs.readFile`][fs.readfile]
 
@@ -11,7 +11,7 @@ Promisified version of [`fs.readFile`][fs.readfile]
 const readFilePromise = require('fs-readfile-promise');
 
 (async () => {
-  const buffer = await readFile('path/to/a/file');
+  const buffer = await readPromise('path/to/a/file');
   buffer.toString(); //=> '... file contents ...'
 })();
 ```
@@ -34,7 +34,7 @@ const readFilePromise = require('fs-readfile-promise');
 
 ### readFile(*path* [, *options*])
 
-*path*: `string` `Buffer` `URL` `integer`  
+*path*: `string` `Buffer` `Uint8Array` `URL` `integer`  
 *options*: `Object` ([fs.readFile] options) or `string` (encoding)  
 Return: `Promise<Buffer|string>`
 
@@ -44,7 +44,6 @@ Return: `Promise<Buffer|string>`
   await readFilePromise('src.txt', 'utf8'); //=> 'Hi.'
   await readFilePromise('src.txt', {encoding: 'base64'}); //=> 'SGku'
 })();
-
 ```
 
 ## Related projects
@@ -54,6 +53,6 @@ Return: `Promise<Buffer|string>`
 
 ## License
 
-[ISC License](./LICENSE) © 2017 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2017 - 2018 Shinnosuke Watanabe
 
 [fs.readfile]: https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback

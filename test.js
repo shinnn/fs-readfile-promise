@@ -15,7 +15,7 @@ test('fsReadFilePromise()', async t => {
 	);
 
 	try {
-		await readFile('__this_file_does_not_exist__', null);
+		await readFile(new Uint8Array(['n'.charCodeAt(0), 'o'.charCodeAt(0)]), null);
 	} catch ({code}) {
 		t.equal(code, 'ENOENT', 'should fail when the file doesn\'t exist.');
 	}
@@ -28,8 +28,8 @@ test('fsReadFilePromise()', async t => {
 
 	try {
 		await readFile(true);
-	} catch ({name}) {
-		t.equal(name, 'TypeError', 'should fail when the path isn\'t a string.');
+	} catch ({code}) {
+		t.equal(code, 'ERR_INVALID_ARG_TYPE', 'should fail when the path is an invalid type value.');
 	}
 
 	try {
@@ -69,6 +69,16 @@ test('fsReadFilePromise()', async t => {
 			message,
 			'Expected a valid file path or a file descripter to read, but got a zero-length Buffer.',
 			'should fail when the path is an empty Buffer.'
+		);
+	}
+
+	try {
+		await readFile(new Uint8Array());
+	} catch ({message}) {
+		t.equal(
+			message,
+			'Expected a valid file path or a file descripter to read, but got a zero-length Uint8Array.',
+			'should fail when the path is an empty Uint8Array.'
 		);
 	}
 
