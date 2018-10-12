@@ -4,11 +4,11 @@
 	"description": "Promise version of fs.readFile",
 	"repository": "shinnn/fs-readfile-promise",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"license": "ISC",
 	"scripts": {
-		"pretest": "eslint --fix --format=codeframe index.js test.js",
+		"pretest": "eslint .",
 		"test": "nyc node test.js"
 	},
-	"license": "ISC",
 	"files": [
 		"index.js"
 	],
@@ -21,16 +21,17 @@
 		"then",
 		"thenable"
 	],
-	"dependencies": {
-		"graceful-fs": "^4.1.11"
-	},
 	"devDependencies": {
-		"@shinnn/eslint-config-node": "^5.0.0",
-		"eslint": "^4.14.0",
-		"nyc": "^11.4.1",
-		"tape": "^4.8.0"
+		"@shinnn/eslint-config": "^6.7.2",
+		"eslint": "^5.6.1",
+		"nyc": "^13.0.1",
+		"nyc-config-common": "^1.0.0",
+		"tape": "^4.9.1"
 	},
 	"eslintConfig": {
-		"extends": "@shinnn/node"
+		"extends": "@shinnn"
+	},
+	"nyc": {
+		"extends": "nyc-config-common"
 	}
 }

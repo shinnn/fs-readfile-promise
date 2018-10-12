@@ -1,7 +1,7 @@
 'use strict';
 
 const {promisify} = require('util');
-const {readFile} = require('graceful-fs');
+const {readFile} = require('fs');
 
 const ARG_ERROR = 'Expected 1 or 2 arguments (<string|Buffer|URL|integer>[, <Object|string>])';
 const PATH_ERROR = 'Expected a valid file path or a file descripter to read';
